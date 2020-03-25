@@ -1,0 +1,21 @@
+.auto{
+    display: flex;
+    justify-content: space-between;
+    margin: 7px;
+    padding: 1% 5%;
+    background-color: #578dc0;
+    border-radius: 5px;
+}
+h2{
+    text-align: center;
+}
+
+.mmodal{
+    text-align: center;
+    background-color: #578dc0;
+    border-radius: 5px;
+}
+
+.centrar{
+    text-align: center;
+}

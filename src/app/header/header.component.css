@@ -1,0 +1,26 @@
+.contenedor{
+    background-color: black;
+    display: flex;
+    justify-content: space-between;
+}
+.texto h2{
+    color: white;
+    text-align: center;
+}
+.logoTienda{
+    width: 33%;
+    text-align: center;
+}
+.logoGit{
+    width: 33%;
+    text-align: center;
+    padding-top: 2%;
+}
+.texto{
+    text-align: center;
+    width: 34%;
+    padding-top: 2%;
+}
+a{
+    text-decoration: none;
+}
