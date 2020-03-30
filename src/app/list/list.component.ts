@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { AUTOMOVILES } from '../../assets/data';
 import { Automovil } from '../../assets/models';
-import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { ModalDismissReasons, NgbModal, NgbPagination } from '@ng-bootstrap/ng-bootstrap';
+import { AutosService } from '../Services/autos.service';
 
 @Component({
   selector: 'app-list',
@@ -13,11 +13,14 @@ export class ListComponent implements OnInit {
   autoSeleccionado: Automovil;
   closeResult = '';
   constructor(
-    private modalService: NgbModal
+    private modalService: NgbModal,
+    private autoServie: AutosService
   ) { }
 
   ngOnInit() {
-    this.autos = AUTOMOVILES;
+    this.autoServie.getAutos().subscribe((response) => {
+      this.autos = response.data;
+    });
   }
 
   open(auto: Automovil, modalAutomovil): void {

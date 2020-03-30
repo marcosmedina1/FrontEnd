@@ -1,7 +1,7 @@
 import { Automovil } from './models';
 
 export const AUTOMOVILES: Automovil[] = [
-    {
+   /* {
         marca: 'Toyota',
         submarca: 'Corrolla',
         modelo: 2017,
@@ -42,5 +42,5 @@ export const AUTOMOVILES: Automovil[] = [
         modelo: 2020,
         descripcion: 'Lexus LFA 5 Puertas Automático Asientos Piel',
         fecha_registro: new Date('2020-03-15')
-    }
+    }*/
 ];
