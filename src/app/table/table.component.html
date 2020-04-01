@@ -1,4 +1,7 @@
-<!-- <button type="button" class="btn btn-dark" (click)=openModalAgregar()>Agregar <i class="fa fa-plus"></i></button> -->
+<p *ngIf="DisplayProgressBar">
+    <ngb-progressbar type="dark" [value]="100" animated=true striped=true></ngb-progressbar>
+</p>
+<button type="button" class="btn btn-dark" (click)=openModalAgregar()>Agregar <i class="fa fa-plus"></i></button>
 <table class="table table-striped">
     <thead>
         <tr>
@@ -14,7 +17,7 @@
             <th>{{auto._id}}</th>
             <td>{{auto.marca}}</td>
             <td>{{auto.submarca}}</td>
-            <td>{{auto.modelos}}</td>
+            <td>{{auto.modelos | formatoModelos }}</td>
             <td>{{auto.descripcion}}</td>
             <td (click)="openModalEditar(auto)"><i class="fas fa-edit"></i></td>
             <td (click)="eliminarAuto(auto._id)"><i class="fas fa-trash"></i></td>

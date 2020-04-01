@@ -12,14 +12,17 @@ export class ListComponent implements OnInit {
   autos: Automovil[];
   autoSeleccionado: Automovil;
   closeResult = '';
+  DisplayProgressBar: boolean;
   constructor(
     private modalService: NgbModal,
     private autoServie: AutosService
   ) { }
 
   ngOnInit() {
+    this.DisplayProgressBar = true;
     this.autoServie.getAutos().subscribe((response) => {
       this.autos = response.data;
+      this.DisplayProgressBar = false;
     });
   }
 

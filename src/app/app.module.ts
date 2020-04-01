@@ -13,6 +13,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { TableComponent } from './table/table.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { ModalAddUpdateComponent } from './modal-add-update/modal-add-update.component';
+import { FormatoModelosPipe } from './Pipes/formato-modelos.pipe';
 
 
 
@@ -25,6 +26,7 @@ import { ModalAddUpdateComponent } from './modal-add-update/modal-add-update.com
     TableComponent,
     PageNotFoundComponent,
     ModalAddUpdateComponent,
+    FormatoModelosPipe,
   ],
   imports: [
     BrowserModule,

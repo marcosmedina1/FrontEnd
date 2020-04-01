@@ -19,13 +19,4 @@ export class ModalAddUpdateComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
-  editar(auto: Automovil) {
-    try {
-      this.autoService.getUpdate(auto).subscribe();
-      window.alert('Se modifico con exito recarge la pagina');
-    } catch (error) {
-      console.log(error);
-    }
-  }
 }

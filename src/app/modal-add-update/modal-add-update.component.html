@@ -24,7 +24,7 @@
                 <input id="descripcion" type="text" placeholder="Agregar Descripcion" class="form-control" [(ngModel)]="auto.descripcion" name="descripcion">
             </div>
             <div class="modal-footer">
-                <button type="submit"  class="btn btn-outline-dark"(click)="editar" (click)="activeModal.close('Save click')">Guardar</button>
+                <button type="submit"  class="btn btn-outline-dark" (click)="activeModal.close(auto)">Guardar</button>
             </div>
         </form>
     </div>

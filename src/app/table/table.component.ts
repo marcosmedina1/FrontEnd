@@ -12,18 +12,28 @@ import { Automovil } from 'src/assets/models';
 })
 export class TableComponent implements OnInit {
   autos: Automovil[];
-  page = 1;
-  pageSize = 10;
-  collectionSize = 40;
-  auto: Automovil = {} as Automovil;
+  page: number;
+  pageSize: number;
+  DisplayProgressBar: boolean;
+  collectionSize: number;
+  pageAgregar: number;
   constructor(
     private autoSerive: AutosService,
     private modalService: NgbModal
   ) { }
 
   ngOnInit(): void {
+    this.page = +sessionStorage.getItem('currentPage');
+    this.pageSize = 10;
+    this.DisplayProgressBar = true;
     this.autoSerive.getAutos().subscribe((response) => {
       this.autos = response.data;
+      this.DisplayProgressBar = false;
+      this.collectionSize = this.autos.length;
+      setTimeout(() => {
+        this.DisplayProgressBar = false;
+        this.autos = response.data;
+      }, 1500);
     });
   }
 
@@ -31,17 +41,54 @@ export class TableComponent implements OnInit {
     const modalRef = this.modalService.open(ModalAddUpdateComponent, { centered: true});
     modalRef.componentInstance.auto = auto;
     modalRef.componentInstance.accion = 'Editar';
+
+    try {
+      modalRef.result.then(
+      (auto) => {
+        this.autoSerive.UpdateAutos(auto).subscribe();
+        window.alert('Se acutalizo con Exito');
+        sessionStorage.setItem('currentPage', this.page.toString());
+        this.ngOnInit();
+      }
+    );
+    } catch (error) {
+      console.log(error);
+    }
   }
 
-  /*openModalAgregar() {
+  openModalAgregar() {
     const modalRef = this.modalService.open(ModalAddUpdateComponent, {centered: true});
-    modalRef.componentInstance.auto = this.auto;
+    modalRef.componentInstance.auto = {
+      _id: 0,
+      modelos: [],
+      marca: '',
+      submarca: '',
+      descripcion: '',
+
+    };
     modalRef.componentInstance.accion = 'Agregar';
-  }*/
+
+    try {
+      modalRef.result.then(
+        (auto) => {
+          this.autoSerive.AgregarAutos(auto).subscribe();
+          window.alert('Se agrego con Exito');
+          this.pageAgregar = Math.ceil(this.collectionSize / this.pageSize);
+          sessionStorage.setItem('currentPage', this.pageAgregar.toString());
+          this.ngOnInit();
+        }
+      );
+    } catch (error) {
+      console.log(error);
+    }
+  }
 
   eliminarAuto(id: number) {
     try {
-      this.autoSerive.getDelete(id).subscribe();
+      this.autoSerive.DeleteAutos(id).subscribe( response => {
+        sessionStorage.setItem('currentPage', this.page.toString());
+        this.ngOnInit();
+      });
       window.alert('Se borro con exito recarge la pagina');
     } catch (error) {
       console.log(error);

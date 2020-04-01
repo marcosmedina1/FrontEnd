@@ -1,6 +1,9 @@
 <h2>
     Lista de Carros Disponibles
 </h2>
+<p *ngIf="DisplayProgressBar">
+    <ngb-progressbar type="dark" [value]="100" animated=true striped=true></ngb-progressbar>
+</p>
 <ng-container *ngFor="let auto of autos">
     <div class="auto" >
         <i class="fas fa-eye" (click)="open(auto, modalAutomovil)"></i>
@@ -26,7 +29,7 @@
                 <br/>
                 <label>Submarca: {{autoSeleccionado.submarca}}</label>
                 <br/>
-                <label>Modelo: {{autoSeleccionado.modelo}}</label>
+                <label>Modelo: {{autoSeleccionado.modelos}}</label>
                 <br/>
                 <label>Descripcion: {{autoSeleccionado.descripcion}}</label>
             </div> 

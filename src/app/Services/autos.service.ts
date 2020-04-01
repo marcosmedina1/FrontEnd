@@ -14,15 +14,19 @@ export class AutosService {
   ) { }
 
   getAutos(): Observable<any> {
-    return this.http.get<any>(this.autosUrl);
+    return this.http.get<any>(this.SinLimiteUrl);
   }
 
-  getUpdate(auto: Automovil): Observable<Automovil> {
-    return this.http.put<Automovil>(this.SinLimiteUrl, auto);
+  UpdateAutos(auto: Automovil): Observable<any> {
+    return this.http.put<any>(`${this.SinLimiteUrl}/${auto._id}`, auto);
   }
 
-  getDelete(id: number) {
+  DeleteAutos(id: number) {
     const url = `${this.SinLimiteUrl}/${id}`;
     return this.http.delete(url);
+  }
+
+  AgregarAutos(auto: Automovil): Observable<any> {
+    return this.http.post<any>(`${this.SinLimiteUrl}`, auto);
   }
 }
