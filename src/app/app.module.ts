@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -14,6 +15,7 @@ import { TableComponent } from './table/table.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { ModalAddUpdateComponent } from './modal-add-update/modal-add-update.component';
 import { FormatoModelosPipe } from './Pipes/formato-modelos.pipe';
+import { LogComponent } from './log/log.component';
 
 
 
@@ -27,6 +29,7 @@ import { FormatoModelosPipe } from './Pipes/formato-modelos.pipe';
     PageNotFoundComponent,
     ModalAddUpdateComponent,
     FormatoModelosPipe,
+    LogComponent,
   ],
   imports: [
     BrowserModule,
@@ -34,7 +37,8 @@ import { FormatoModelosPipe } from './Pipes/formato-modelos.pipe';
     NgbModule,
     FontAwesomeModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    Ng2SearchPipeModule
 
   ],
   providers: [],

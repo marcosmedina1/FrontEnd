@@ -17,6 +17,7 @@ export class TableComponent implements OnInit {
   DisplayProgressBar: boolean;
   collectionSize: number;
   pageAgregar: number;
+  searchText;
   constructor(
     private autoSerive: AutosService,
     private modalService: NgbModal
