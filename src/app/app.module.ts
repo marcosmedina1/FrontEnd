@@ -16,6 +16,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { ModalAddUpdateComponent } from './modal-add-update/modal-add-update.component';
 import { FormatoModelosPipe } from './Pipes/formato-modelos.pipe';
 import { LogComponent } from './log/log.component';
+import { InicioComponent } from './inicio/inicio.component';
 
 
 
@@ -30,6 +31,7 @@ import { LogComponent } from './log/log.component';
     ModalAddUpdateComponent,
     FormatoModelosPipe,
     LogComponent,
+    InicioComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,21 @@
+.contenedor{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.contenedor-imagenes{
+    text-align: center;
+    width: 50%;
+    display: flex;
+    justify-content: space-around;
+}
+img{
+    text-align: center;
+    width: 50%;
+    margin-top: 20px;
+}
+
+.texto{
+    text-align: center;
+    width: 50%;
+}

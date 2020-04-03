@@ -5,12 +5,13 @@ import { TableComponent } from './table/table.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { AppComponent } from './app.component';
 import { LogComponent } from './log/log.component';
+import { InicioComponent } from './inicio/inicio.component';
 
 
 const routes: Routes = [
   {
     path: '',
-    component: TableComponent
+    component: InicioComponent
   },
   {
     path: 'list',
